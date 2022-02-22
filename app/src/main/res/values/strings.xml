@@ -1,0 +1,12 @@
+<resources>
+    <!-- ACTIVITY -->
+    <string name="app_name">Camera Control</string>
+    <string name="strMenuBluetooth">Bluetooth</string>
+
+    <!-- FRAGMENT BLUETOOTH -->
+    <string name="frag1">Hello blank fragment</string>
+
+    <!-- FRAGMENT CAMERA -->
+    <string name="frag2">Hello blank fragment</string>
+
+</resources>
