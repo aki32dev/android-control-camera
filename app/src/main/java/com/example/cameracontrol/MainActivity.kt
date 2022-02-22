@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.cameracontrol.databinding.ActivityMainBinding
-import com.example.cameracontrol.fragment.BluetoothFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
