@@ -2,11 +2,22 @@
     <!-- ACTIVITY -->
     <string name="app_name">Camera Control</string>
     <string name="strMenuBluetooth">Bluetooth</string>
+    <string name="strMenuSetting">Setting</string>
+    <string name="strZoom">Increment/Decrement Zoom</string>
+    <string name="strZoom1">0.25x</string>
+    <string name="strZoom2">0.50x</string>
+    <string name="strZoom3">0.75x</string>
+    <string name="strZoom4">1.00x</string>
 
-    <!-- FRAGMENT BLUETOOTH -->
-    <string name="frag1">Hello blank fragment</string>
+    <!-- BLUETOOTH -->
+    <string name="strBtConnect">Connect</string>
+    <string name="strTvPaired">Paired Devices</string>
+    <string name="strNC">Not Connected</string>
+    <string name="strCTI">Connecting…</string>
+    <string name="strCTD">Connected With %s</string>
 
-    <!-- FRAGMENT CAMERA -->
-    <string name="frag2">Hello blank fragment</string>
+
+    <!-- CAMERA -->
+    <string name="strTakePicture">Take Picture</string>
 
 </resources>

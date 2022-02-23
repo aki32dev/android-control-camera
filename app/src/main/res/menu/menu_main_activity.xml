@@ -8,4 +8,10 @@
         app:showAsAction="always"
         android:title="@string/strMenuBluetooth"
         tools:ignore="AlwaysShowAction"/>
+    <item
+        android:id="@+id/menu_setting"
+        android:icon="@drawable/ic_setting"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction"
+        android:title="@string/strMenuSetting" />
 </menu>
