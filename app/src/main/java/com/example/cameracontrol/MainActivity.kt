@@ -25,6 +25,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cameracontrol.adapter.RecyclerViewPairedAdapter
 import com.example.cameracontrol.data.Constants
 import com.example.cameracontrol.databinding.ActivityMainBinding
 import com.example.cameracontrol.utility.BluetoothUtility
@@ -70,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         dialog = Dialog(this)
-        bluetoothUtility = BluetoothUtility(this, handlerBluetooth)
+        bluetoothUtility = BluetoothUtility(handlerBluetooth)
         setSubtitle(getString(R.string.strNC))
 
         cameraProviderFuture = ProcessCameraProvider.getInstance(this)
@@ -138,10 +139,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed()
             stopCamera()
             bluetoothUtility.stop()
-            finishAndRemoveTask()
-            super.onBackPressed()
+            finish()
         } else {
             Toast.makeText(this, "Press back again to leave the app", Toast.LENGTH_SHORT).show()
         }
@@ -320,16 +321,14 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 Constants.messageDeviceName       -> {
-                    connectedDevice = msg.data.getString(Constants.deviceName)!!
+                    connectedDevice = msg.data.getString(Constants.messageString)!!
                 }
                 Constants.messageToast            -> {
-                    val msgToast = msg.data.getString(Constants.toast)
+                    val msgToast = msg.data.getString(Constants.messageString)
                     Toast.makeText(this@MainActivity, msgToast, Toast.LENGTH_SHORT).show()
                 }
                 Constants.messageConnect            -> {
-                    val name = msg.data.getString(Constants.deviceName)
                     val mac = msg.data.getString(Constants.deviceMac)
-                    Toast.makeText(this@MainActivity, "Connecting to $name", Toast.LENGTH_SHORT).show()
                     bluetoothUtility.connect(bluetoothAdapter.getRemoteDevice(mac))
                 }
             }
@@ -371,7 +370,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startCamera() {
-        //val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         cameraProviderFuture.addListener({
             cameraProvider = cameraProviderFuture.get()
             val preview = Preview.Builder()

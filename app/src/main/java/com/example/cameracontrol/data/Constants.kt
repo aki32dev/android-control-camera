@@ -1,7 +1,5 @@
 package com.example.cameracontrol.data
 
-import java.util.*
-
 object Constants {
     val zoomInOut = floatArrayOf(
         0.25F,
@@ -21,6 +19,7 @@ object Constants {
     const val messageDeviceName         : Int               = 3
     const val messageToast              : Int               = 4
     const val messageConnect            : Int               = 5
+    const val messageString             : String            = "messageString"
     const val deviceName                : String            = "deviceName"
     const val deviceMac                 : String            = "deviceMac"
     const val toast                     : String            = "toast"
@@ -30,6 +29,5 @@ object Constants {
     const val stateConnecting           : Int               = 2
     const val stateConnected            : Int               = 3
 
-    val       appUUID                   : UUID              = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
     const val appName                   : String            = "Arduino Bluetooth"
 }
